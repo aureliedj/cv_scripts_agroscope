@@ -1,0 +1,3 @@
+[submodule "bird_detection"]
+	path = bird_detection
+	url = git@github.com:aureliedj/BirdsDetection.git
