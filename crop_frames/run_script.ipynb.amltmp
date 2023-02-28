@@ -1,0 +1,135 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# Crop images\r\n",
+        "\r\n",
+        "This script enables to crop field images accordingly to the frame present on the image.\r\n",
+        "\r\n",
+        "If you are using an aluminium frame please change the function \"getRedFrame()\" in the file crop_frame.py to \"getWhiteFrame()\".\r\n"
+      ],
+      "metadata": {
+        "nteract": {
+          "transient": {
+            "deleting": false
+          }
+        }
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### General imports"
+      ],
+      "metadata": {
+        "nteract": {
+          "transient": {
+            "deleting": false
+          }
+        }
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import os\r\n",
+        "from crop_frame import DebugArgs, crop\r\n",
+        "from glob import glob"
+      ],
+      "outputs": [],
+      "execution_count": 4,
+      "metadata": {
+        "gather": {
+          "logged": 1677060146988
+        }
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### Run script\r\n",
+        "\r\n",
+        "Please change the 'input_dir' to the directory containing all the images to crop and the 'file_extension'. A frame should be present on all the images.\r\n",
+        "\r\n",
+        "This script creates a new folder 'foldername_crop' where the output images are saved."
+      ],
+      "metadata": {
+        "nteract": {
+          "transient": {
+            "deleting": false
+          }
+        }
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "input_dir = os.getcwd() + '/../../../data/photos_zenitales/2022.09.08'\n",
+        "file_extension = '.JPG'\n",
+        "\n",
+        "# create output directory if not already exisiting\n",
+        "if input_dir + '_crop' not in glob(input_dir +'_crop'):\n",
+        "    output_dir = os.makedirs(input_dir + '_crop')\n",
+        "else:\n",
+        "    output_dir = input_dir + '_crop'\n",
+        "\n",
+        "#set the parameters\n",
+        "args = DebugArgs(input_dir, output_dir, file_extension)\n",
+        "\n",
+        "#apply cropping\n",
+        "crop(args)\n"
+      ],
+      "outputs": [],
+      "execution_count": 5,
+      "metadata": {
+        "gather": {
+          "logged": 1677060147624
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)"
+    },
+    "language_info": {
+      "name": "python",
+      "version": "3.8.5",
+      "mimetype": "text/x-python",
+      "codemirror_mode": {
+        "name": "ipython",
+        "version": 3
+      },
+      "pygments_lexer": "ipython3",
+      "nbconvert_exporter": "python",
+      "file_extension": ".py"
+    },
+    "orig_nbformat": 4,
+    "vscode": {
+      "interpreter": {
+        "hash": "10a1eba0a72b74e0c4df1ca223901cbcb1c5318741455c15bea9eb99ba15a606"
+      }
+    },
+    "microsoft": {
+      "ms_spell_check": {
+        "ms_spell_check_language": "en"
+      },
+      "host": {
+        "AzureML": {
+          "notebookHasBeenCompleted": true
+        }
+      }
+    },
+    "kernel_info": {
+      "name": "python3"
+    },
+    "nteract": {
+      "version": "nteract-front-end@1.0.0"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 2
+}
