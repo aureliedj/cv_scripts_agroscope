@@ -1,0 +1,9 @@
+cv2
+glob
+tqdm
+utils
+numpy
+sklearn.cluster
+matplotlib.pyplot
+crop_frame
+os

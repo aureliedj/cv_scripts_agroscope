@@ -1,0 +1,8 @@
+plantcv
+glob
+cv2
+tqdm
+numpy
+matplotlib.pyplot
+pandas
+os
